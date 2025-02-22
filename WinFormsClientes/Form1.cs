@@ -22,13 +22,23 @@ namespace WinFormsClientes
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            cliente.Id = int.Parse(txtId.Text);
-            cliente.Nome = txtNome.Text;
-            cliente.Email = txtEmail.Text;
+            try
+            {
+                cliente.Id = int.Parse(txtId.Text);
+                cliente.Nome = txtNome.Text;
+                cliente.Email = txtEmail.Text;
 
-            lstBoxClientes.Items.Add(cliente.Id.ToString());
-            lstBoxClientes.Items.Add(cliente.Nome);
-            lstBoxClientes.Items.Add(cliente.Email);
+                lstBoxClientes.Items.Add(cliente.Id.ToString());
+                lstBoxClientes.Items.Add(cliente.Nome);
+                lstBoxClientes.Items.Add(cliente.Email);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro!!" + ex.Message.ToString());
+
+               
+            }
+
         }
     }
 }
